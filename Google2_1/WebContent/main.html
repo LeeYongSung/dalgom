@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>홈</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({type: "POST",
+		url : "http://192.168.0.66:8090/Google2/adminSelect.kkb",
+		success : function(data){
+			setUserList(data.userList);	
+	   }
+     });
+});
+function setUserList(data){
+	var html = "";
+	var user = "";
+	for(var i = 0; i < data.length; i++){
+		html += '<a href="javascript:clickEvent(\'' + data[i].ID + '\')" class="list-group-item auth">' + data[i].NAME + '</a>';
+		user += '<option value=\''+ data[i].ID +'\'>' + data[i].NAME +'</option>';
+	}
+	$("#userList").empty().html(html);
+	$("#userSelect").empty().html(user);
+}
+function setAuthList(data){
+	var html = "";
+	for(var i = 0; i < data.length; i++){
+		html += '<a href="javascript:clickEvent()" class="list-group-item auth">' + data[i].AUTH_NAME + '</a>';
+	}
+	$("#authList").empty().html(html);
+	
+}
+function clickEvent(id){
+	$.ajax({type: "POST",
+		url : "http://192.168.0.66:8090/Google2/MenuAction!execute.kkb",
+		data : {"userId": id},
+		success : function(data){
+				console.log(data);
+				setAuthList(data.mappingList);
+	   }
+	    });
+}
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+	  <div class="col-sm-6">
+		<h2>사용자</h2>
+		<ul class="list-group" id="userList">
+			<a href="javascript:clickEvent()" class="list-group-item auth">이름</a>
+		</ul>
+	  </div>
+	  <div class="col-sm-6">
+		<h2>menu</h2>
+		<ul class="list-group" id="authList">
+<!-- 			<a href="javascript:clickEvent()" class="list-group-item auth">1</a> -->
+		</ul>
+	  </div>
+	</div>
+</div>
+</body>
+</html>

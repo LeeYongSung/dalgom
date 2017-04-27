@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>권한 설정</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({type: "POST",
+		url : "http://192.168.0.66:8090/Google2/adminSelect.kkb",
+		success : function(data){
+				console.log(data);
+				setUserList(data.userList);
+				setAuthList(data.authList);
+	   }
+     });
+});
+function setUserList(data){
+	var html = "";
+	var user = "";
+	for(var i = 0; i < data.length; i++){
+		html += '<a href="javascript:clickEvent(\'U\', \'' + data[i].ID + '\')" class="list-group-item auth">' + data[i].NAME + '</a>';
+		user += '<option value=\''+ data[i].ID +'\'>' + data[i].NAME +'</option>';
+	}
+	$("#userList").empty().html(html);
+	$("#userSelect").empty().html(user);
+}
+function setAuthList(data){
+	var html = "";
+	var auth="";
+	for(var i = 0; i < data.length; i++){
+		html += '<a href="javascript:clickEvent()" class="list-group-item auth">' + data[i].AUTH_NAME + '</a>';
+		auth += '<option value=\''+ data[i].AUTH_ID +'\'>' + data[i].AUTH_NAME +'</option>';
+	}
+	$("#authList").empty().html(html);
+	$("#authSelect").empty().html(auth);
+	
+}
+function setMappingList(data){
+	var html = "";
+	for(var i = 0; i < data.length; i++){
+		html += '<tr>';
+		html += '<td class="text-left">' + data[i].NAME + '</td>';
+		html += '<td class="text-center">' + data[i].AUTH_NAME + '</td>';
+		html += '<td class="text-center">' + data[i].MOD_DATE + '</td>';
+		html += '<td><button onclick="delete_list(\''+data[i].ID+'\',\''+data[i].AUTH_ID+'\');">삭제</button></td>';
+		html += '</tr>';
+	}
+	$("#mappingList").empty().html(html);
+}
+function clickEvent(type, id){
+	switch (type) {
+	case "U":
+		$.ajax({type: "POST",
+			url : "http://192.168.0.66:8090/Google2/AdminAction!mapping.kkb",
+			data : {"userId": id},
+			success : function(data){
+					console.log(data);
+					setMappingList(data.mappingList);
+		   }
+	     });
+		break;
+
+	default:
+		console.log("clickEvent()");
+		break;
+	}
+}
+
+function insert(){
+	var id;
+	var auth_id;
+	id = $("#userSelect").val();
+	auth_id = $("#authSelect").val();
+	
+	$.ajax({type: "POST",
+		url : "http://192.168.0.66:8090/Google2/AdminAction!insert.kkb",
+		data : {"userId": id,
+				"authId": auth_id},
+		success : function(data){
+				console.log(data);
+				location.reload();
+	   }
+     });
+}
+
+function delete_list(id, auth_id) {
+	console.log(id, auth_id);
+	$.ajax({type: "POST",
+		url : "http://192.168.0.66:8090/Google2/AdminAction!delete.kkb",
+		data : {"userId": id,
+				"authId": auth_id},
+		success : function(data){
+				console.log(data);
+				if(data != null){
+					setMappingList(data.mappingList);
+				}
+				
+	   }
+     });
+}
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+	  <div class="col-sm-6">
+		<h2>사용자</h2>
+		<ul class="list-group" id="userList">
+			<a href="javascript:clickEvent()" class="list-group-item auth">이름</a>
+		</ul>
+	  </div>
+	  <div class="col-sm-6">
+	  	<h2>권한</h2>
+		<ul class="list-group" id="authList">
+			<a href="javascript:clickEvent()" class="list-group-item auth">권한</a>
+		</ul>
+	  </div> 
+	  
+	  <select id="userSelect"></select>
+	  <select id="authSelect"></select>
+	  <button onclick="insert();">Insert</button>
+	  <hr>
+	  <div class="col-sm-12">
+	  	<h2>권한 매핑 리스트</h2>
+		<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th class="text-left">Name</th>
+		        <th class="text-center">Auth</th>
+		        <th class="text-center">date</th>
+		      </tr>
+		    </thead>
+		    <tbody id="mappingList">
+			    <tr>
+					<td class="text-left">이름</td>
+					<td class="text-center">권한</td>
+					<td class="text-center">날짜</td>
+				</tr>
+		    </tbody>
+		  </table>
+	  </div>
+	</div>
+</div>
+</body>
+</html>

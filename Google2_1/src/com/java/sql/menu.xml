@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="menu">
+	<select id="selectMenu" parameterType="String" resultType="hashmap">
+		SELECT AUTH.AUTH_NAME,
+		       AUTH.AUTH_ID,
+		       TO_CHAR(AUTH_MAPPING.MOD_DATE, 'YYYY-MM-DD hh:mi:ss') as MOD_DATE
+		FROM AUTH_MAPPING
+		INNER JOIN AUTH
+		ON (AUTH_MAPPING.AUTH_ID = AUTH.AUTH_ID
+		AND AUTH.DEL_YN = 'N')
+		WHERE AUTH_MAPPING.USER_ID = #{userId}
+		AND   AUTH_MAPPING.DEL_YN = 'N'
+	</select>
+</mapper>
