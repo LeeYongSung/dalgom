@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="google">
+  <select id="UserList" resultType="hashmap">
+	SELECT 
+	       ID,
+	       NAME
+	FROM JAVA.GOOGLE 
+	WHERE DEL_YN = 'N'
+  </select>
+  <select id="AuthList" resultType="hashmap">
+	SELECT 
+	       AUTH_ID,
+	       AUTH_NAME
+	FROM JAVA.AUTH
+	WHERE DEL_YN = 'N'
+  </select>
+  <select id="MappingList" parameterType="hashmap" resultType="hashmap">
+	SELECT 
+	       AUTH_MAPPING.AUTH_ID,
+	       AUTH.AUTH_NAME,
+	       AUTH_MAPPING.USER_ID,
+	       GOOGLE.NAME,
+	       AUTH_MAPPING.REG_DATE,
+	       to_char(AUTH_MAPPING.MOD_DATE, 'YYYY-MM-DD hh:mi:ss') as MOD_DATE
+	FROM JAVA.AUTH_MAPPING
+	INNER JOIN JAVA.GOOGLE
+	ON (AUTH_MAPPING.USER_ID = GOOGLE.ID
+	AND GOOGLE.DEL_YN = 'N')
+	INNER JOIN JAVA.AUTH
+	ON (AUTH_MAPPING.AUTH_ID = AUTH.AUTH_ID
+	AND AUTH.DEL_YN = 'N')
+	WHERE AUTH_MAPPING.DEL_YN = 'N'
+	AND   AUTH_MAPPING.USER_ID = #{userId}
+  </select>
+  <insert id="insertMapping" parameterType="hashmap">
+	INSERT INTO JAVA.AUTH_MAPPING 
+	(AUTH_ID, USER_ID) 
+	VALUES 
+	(#{authId}, #{userId})
+  </insert>
+  <select id="selectUser" parameterType="hashmap" resultType="hashmap">
+  	SELECT DISTINCT * 
+  	FROM JAVA.GOOGLE
+  	WHERE ID = #{id}
+  </select>
+  <insert id="insertUser" parameterType="hashmap">
+  	INSERT INTO JAVA.GOOGLE 
+	(ID,
+	 IMG,
+	 EMAIL,
+	 NAME)
+	VALUES 
+	(#{id},
+	 #{img},
+	 #{email},
+	 #{name})
+  </insert>
+</mapper>
+
+
+
+
+
+
