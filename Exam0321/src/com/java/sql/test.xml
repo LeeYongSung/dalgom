@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+  <select id="selectTemp" resultType="hashmap">
+    select temp_no as "No",
+	       temp_name as "Name",
+	       temp_desc as "Desc",
+	       del_yn as "DelYn"
+	from temp
+  </select>
+  
+  <insert id="insertTemp" parameterType="hashmap">
+  	insert into temp values (#{No},#{Name},#{Desc},#{DelYn})
+  </insert>
+  
+  <delete id="deleteTemp" parameterType="hashmap">
+  	delete from temp where temp_no = ${No}
+  </delete>
+  
+  <update id="updateTemp" parameterType="hashmap">
+  	update temp set
+  	temp_name = ${Name},
+  	temp_desc = ${Desc},
+  	del_yn = ${DelYn}
+  	where temp_no = ${No}
+  </update>
+</mapper>
+
+
+
+
+
+
