@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+	<select id="selectUser" parameterType="hashmap" resultType="hashmap">
+		SELECT * FROM JAVA_USERS WHERE DEL_YN = 'N' AND EMAIL = #{email}
+	</select>
+	<insert id="insertUser" parameterType="int">
+		INSERT INTO JAVA_USERS 
+			(USER_NO, USER_NM, EMAIL, PWD, USER_DESC, REG_ID, MOD_ID)
+		VALUES
+			(USER_SEQ.NEXTVAL, #{userNm}, #{email}, ${pwd}, #{userDesc}, #{email}, #{email})
+	</insert>
+</mapper>

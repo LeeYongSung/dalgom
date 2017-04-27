@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<select id="selectBoard" parameterType="String" resultType="hashmap">
+		SELECT * FROM JAVA_BOARD WHERE DEL_YN = 'N'
+	</select>
+	<select id="selectDetailBoard" parameterType="int" resultType="hashmap">
+		SELECT * FROM JAVA_BOARD WHERE DEL_YN = 'N' AND BOARD_NO = #{boardNo}
+	</select>
+	<insert id="insertBoard" parameterType="hashmap">
+		INSERT INTO JAVA_BOARD 
+			(TITLE, CONTENT, REG_ID, MOD_ID) 
+		VALUES 
+			(#{title},#{content},#{email},#{email})
+	</insert>
+	<update id="updateBoard" parameterType="hashmap">
+		UPDATE JAVA_BOARD 
+		SET TITLE = #{title}, 
+		  CONTENT = #{content}, 
+		  MOD_ID = #{email},
+		  MOD_DATE = CURRENT_TIMESTAMP
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	<update id="deleteBoard" parameterType="hashmap">
+		UPDATE JAVA_BOARD 
+		SET DEL_YN = 'Y', 
+		  MOD_ID = #{email},
+		  MOD_DATE = CURRENT_TIMESTAMP
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+</mapper>
