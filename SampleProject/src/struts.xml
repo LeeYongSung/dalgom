@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="login"/>
+        
+        <global-results>
+			<result name="login">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+        
+        <action name="login">
+            <result name="success">/WEB-INF/jsp/login.jsp</result>
+        </action>
+        <action name="logout" class="com.java.LoginAction" method="logout">
+            <result name="success" type="redirectAction">
+            	<param name="actionName">login</param>
+            	<param name="namespace">/</param>
+            </result>
+        </action>
+        <action name="selectLogin" class="com.java.LoginAction">
+        	<result name="success" type="redirectAction">
+            	<param name="actionName">board</param>
+            	<param name="namespace">/</param>
+            </result>
+        </action>
+        <action name="insertUser" class="com.java.LoginAction" method="insert">
+        	<result name="success" type="redirectAction">
+            	<param name="actionName">board</param>
+            	<param name="namespace">/</param>
+            </result>
+        </action>
+        <action name="guestLogin" class="com.java.LoginAction" method="guestLogin">
+        	<result name="success" type="redirectAction">
+            	<param name="actionName">board</param>
+            	<param name="namespace">/</param>
+            </result>
+        </action>
+        <action name="board">
+        	<result name="success">/WEB-INF/jsp/list.jsp</result>
+        </action>
+        <action name="boardDetail" class="com.java.BoardAction" method="detail">
+        	<result name="success">/WEB-INF/jsp/detail.jsp</result>
+        </action>
+    </package>
+    
+    <package name="data" namespace="/data" extends="json-default">
+    	<action name="*!*" class="com.java.{1}" method="{2}">
+        	<result name="success" type="json" />
+        </action>
+    </package>
+
+</struts>
