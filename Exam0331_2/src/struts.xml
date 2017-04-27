@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+<constant name="struts.action.extension" value="lys"/>
+<!-- <constant name="struts.multipart.saveDir" value="E:\Util\sampleimg\"/> -->
+<constant name="struts.multipart.maxSize" value="10485760"/>
+    <package name="default" namespace="/" extends="struts-default, json-default">
+        <action name="index">
+            <result>/WEB-INF/jsp/index.jsp</result>
+        </action>
+        
+<!--         <action name="test" class="com.java.TestAction" method="execute()"> -->
+<!--         	<result>/WEB-INF/jsp/test.jsp</result> -->
+<!--         </action> -->
+<!--         <action name="test2" class="com.java.TestAction" method="execute2()"> -->
+<!--         	<result>/WEB-INF/jsp/test.jsp</result> -->
+<!--         </action> -->
+<!--         <action name="test3" class="com.java.TestAction" method="execute3()"> -->
+<!--         	<result>/WEB-INF/jsp/test.jsp</result> -->
+<!--         </action> -->
+        <action name="*!*" class="com.java.{1}" method="{2}">
+        	<result name="success">/WEB-INF/jsp/test.jsp</result>
+        	<result name="input">/WEB-INF/jsp/result.jsp</result>
+        	<result type="json" name="login"/>
+        </action>
+        <action name="json" class="com.java.JsonAction">
+        	<result type="json"></result>
+        </action>
+    </package>
+    
+    <include file="struts2.xml"></include>
+</struts>

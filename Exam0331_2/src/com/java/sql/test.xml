@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+	<select id="selectBoard" resultType="hashmap">
+		select *
+		from java.board
+	</select>
+	<update id="deleteBoard" parameterType="int">
+		UPDATE JAVA.BOARD
+		SET DEL_YN = 'Y',
+			REG_USER = 'lys'
+		WHERE NO = #{no}
+	</update>
+	<insert id="insertBoard" parameterType="hashmap">
+		insert into java.board (NO, TITLE, CONTENT, REG_USER)
+  				values (#{no}, #{title}, #{content}, 'lys')
+	</insert>
+	<insert id="updateBoard" parameterType="int">
+		update java.board set
+		NO = #{no},
+		TITLE = #{title},
+		CONTENT = #{content}
+		where no = #{no}  
+	</insert>
+</mapper>
+
+
+
+
+
+
