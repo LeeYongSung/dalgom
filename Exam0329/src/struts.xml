@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+ <!--  
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+-->
+    <package name="default" namespace="/" extends="struts-default">
+<!--  
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+-->
+        <action name="index" class="com.java.ResultAction">
+        <!--  
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+            -->
+            <result>result.jsp</result>
+        </action>
+        
+        <action name="test" class="com.java.ResultAction" method="lys">
+        	<result>test.jsp</result>
+        </action>
+    </package>
+
+    <!--<include file="example.xml"/>-->
+
+    <!-- Add packages here -->
+
+</struts>
