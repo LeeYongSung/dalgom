@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="google">
+  <insert id="insertUser" parameterType="hashmap">
+  	INSERT INTO JAVA.GOOGLE 
+	(ID, IMG, EMAIL, NAME)
+	VALUES (#{id}, #{img}, #{email}, #{name})
+  </insert>
+  <select id="selectName" resultType="hashmap">
+  	select id, name from java.google where del_yn = 'N'
+  </select>
+  <select id="selectAuth" resultType="hashmap">
+  	select auth_id, auth_name from java.auth where del_yn = 'N'
+  </select>
+  <select id="selectMapping" parameterType="String" resultType="hashmap">
+  	select jg.ID, jg.NAME, ja.AUTH_ID, ja.AUTH_NAME, to_char(jam.mod_date, 'YYYY-MM-DD hh:mi:ss') as MOD_DATE
+	from java.auth ja inner join java.auth_mapping jam
+                          on ja.AUTH_ID = jam.AUTH_ID
+                         and ja.DEL_YN = 'N'
+                  inner join JAVA.GOOGLE jg
+                          on jam.USER_ID = jg.ID
+                         and jg.DEL_YN = 'N'
+	where jam.USER_ID = #{userId}
+	and jam.del_yn = 'N'
+  </select>
+  <insert id="insertAuth" parameterType="hashmap" >
+  	insert into java.auth_mapping (user_id, auth_id) values (#{userId}, #{authId})
+  </insert>
+  <update id="" ></update>
+  <update id="delete" parameterType="hashmap">
+		UPDATE JAVA.AUTH_MAPPING 
+		SET DEL_YN = 'Y'
+		WHERE USER_ID = #{userId}
+		AND AUTH_ID = #{authId}
+	</update>
+</mapper>
