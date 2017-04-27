@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btlogin").on("click", function(){
+		email = $("#email").val();
+		$.ajax({type: "POST",
+			url : "/Google2/login.kkb",
+			data : {"email" : email},
+			success : function(data){
+				console.log(data);
+				main();
+		   }
+	     });
+	});
+});
+</script>
+</head>
+<body>
+<h3>로그인</h3>
+<input type="text" id="email">
+<button type="button" id="btlogin">로그인</button>
+</body>
+</html>

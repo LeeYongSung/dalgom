@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jquery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var email = "";
+$(document).ready(function(){
+	$.ajax({type: "POST",
+		url : "/Exam0407/login.html",
+		success : function(data){
+			$("#login").empty().html(data);
+	   }
+     });
+});
+function main(){
+	$.ajax({type: "POST",
+		url : "/Exam0407/main.html",
+		success : function(data){
+			$("#login").hide();
+			$("#main").empty().html(data);
+	   }
+     });
+}
+</script>
+<style type="text/css">
+.none {
+	display: none;
+}
+</style>
+</head>
+<body>
+<div id="login"></div>
+<div id="main"></div>
+</body>
+</html>
