@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  var dataSource = ["https://www.w3schools.com/bootstrap/birds1.jpg",
+                    "https://www.w3schools.com/bootstrap/birds2.jpg",
+                    "https://www.w3schools.com/bootstrap/birds3.jpg"];
+  
+  function setData() {
+	  
+	  $.ajax({type: "POST",
+	      url : "http://localhost:8080/Exam0407/temp.html",
+	      success : function(data){
+	         console.log(data);
+	         $("body").append(data);
+	      }
+	   });
+	  
+	  
+	  $.ajax({type: "POST",
+			url : "http://localhost:8080/Google2/adminSelect.kkb",
+			success : function(data){
+					console.log(data, data.authList);
+					var html = "";
+					for(var i = 0; i < data.authList.length; i++) {
+						html += '<li><a href="#">' + data.authList[i].AUTH_NAME + '</a></li>';	
+					}
+					$(".navbar-nav").empty().html(html);
+					$(".navbar-nav li").eq(0).addClass("active");
+					
+					$(".navbar-nav li").on("click", function(){
+			 			var index = $(".navbar-nav li").index($(this));
+			 			// nav bar 선택한 내용 보여 주기
+			 			$(".col-sm-12").addClass("none");
+			 			$(".col-sm-12").eq(index).removeClass("none");
+			 			
+			 			// nav bar 선택 색상 주기
+			 			$(".navbar-nav li").removeClass("active");
+			 			$(".navbar-nav li").eq(index).addClass("active");
+			 			// 이미지 순서 변경
+			 			if(index == 0) {
+			 				$(".col-sm-4 img").eq(0).attr("src", dataSource[0]);
+				 			$(".col-sm-4 img").eq(1).attr("src", dataSource[1]);
+				 			$(".col-sm-4 img").eq(2).attr("src", dataSource[2]);
+			 			} else {
+			 				$(".col-sm-4 img").eq(0).attr("src", dataSource[1]);
+				 			$(".col-sm-4 img").eq(1).attr("src", dataSource[2]);
+				 			$(".col-sm-4 img").eq(2).attr("src", dataSource[0]);
+			 			}
+			  		});
+		   }
+	     });
+	 		
+	  	
+  }
+	setData(); // 기초 데이터 적용하기
+	
+	 $(document).ready(function(){
+		 
+	 });
+  </script>
+  <style type="text/css">
+  	.none {
+  		display: none;
+  	}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <div class="col-sm-12 ">
+  	<h3>Basic Navbar Example1</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  <div class="col-sm-12 none">
+  	<h3>Basic Navbar Example2</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  <div class="col-sm-12 none">
+  	<h3>Basic Navbar Example3</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  <div class="col-sm-12 none">
+  	<h3>Basic Navbar Example4</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  <div class="col-sm-12 none">
+  	<h3>Basic Navbar Example5</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  <div class="col-sm-12 none">
+  	<h3>Basic Navbar Example6</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  </div>
+  
+<!--   <div class="container bg-3 text-center">     -->
+<!--   <h3 class="margin">Where To Find Me?</h3><br> -->
+<!--   <div class="row"> -->
+<!--     <div class="col-sm-4"> -->
+<!--       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+<!--       <img src="https://www.w3schools.com/bootstrap/birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+<!--     </div> -->
+<!--     <div class="col-sm-4">  -->
+<!--       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+<!--       <img src="https://www.w3schools.com/bootstrap/birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+<!--     </div> -->
+<!--     <div class="col-sm-4">  -->
+<!--       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+<!--       <img src="https://www.w3schools.com/bootstrap/birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+</div>
+
+
+
+</body>
+</html>

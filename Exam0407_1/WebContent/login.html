@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+var email =[];
+$.ajax({type: "POST",
+    url : "http://localhost:8080/Google2/adminSelect.kkb",
+    success : function(data){
+       console.log(data, data.userList);
+       for(var i = 0; i < data.userList.length; i++) {
+			email += data.userList[i].EMAIL;
+			
+       }
+			console.log(email);
+			$("#login").click(function(){
+				if(data.userList[0].EMAIL == email) {
+					alert("ddd");
+				} else {
+					alert("ssss");
+				}	
+			}); 
+// 		}
+    }
+ });
+ $(document).ready(function(){
+	
+ });
+	
+</script>
+
+</head>
+<body>
+	<input type="email" name="email" id="email">
+	<button type="button" id="login">로그인</button>
+</body>
+</html>
