@@ -1,0 +1,384 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+.nb{font-family: 'Nanum Brush Script', serif;}
+
+/*Reset*/
+html, body, p, h1, h2, h3{
+    margin: 0 auto;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+a{
+    text-decoration: none;
+    color: #505050;
+}
+button{
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+/*************************/
+nav{    
+    border-bottom: 3px solid #00ccff;
+    color: #505050;
+}
+.nav{
+    font-weight: 700;
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav div{
+    padding: 40px 15px 17px;
+}
+.nav div:nth-child(3) a{
+    color: #a0a0a0;
+    font-size: 14px;
+}
+.nav div:nth-child(3) a:hover{
+    color: #111;
+    font-weight: bold;
+}
+.icon{
+    position: relative;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #505050;
+    top: 3px;
+    border-radius: 20px;
+}
+.icon2{
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;  
+    border-top: 6px solid #505050;
+/*    transform: rotate(180deg);*/
+}
+.nav-input{
+    background: rgba(255, 255, 255, 0);
+    border: 0;
+    width: 48px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #505050;
+}
+.nav a{
+    margin-left: 12px;
+}
+.nav-tit{
+    color: #505050;
+   font-size: 40px;
+}
+.logout-btn{
+    border: 0;
+    color: #fff;
+    background: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 45px;
+    padding: 3px 7px;
+    border-radius: 4px;
+}
+
+/*************************/
+
+.hidden-nav{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+}
+.hidden-nav-wrap{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+}
+.hidden-btn{
+    width: calc(900px /8);
+    height: calc(900px /9);
+    border: 0;
+    color: #111;
+    background: rgba(0, 0, 0, 0);
+    font-weight: bold;
+}
+button:hover{
+    background: rgba(152, 234, 255, 0.8);
+}
+/*************************/
+
+header{
+    background: url(http://i.imgur.com/SdjZoso.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 340px;
+    width: 100%;
+}
+.section{
+    width: 900px;
+    margin: 0 auto;   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.section-content{
+    width: 200px;
+    height: 350px;
+    background: #eee;
+    margin-top: 100px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+
+/**** 이미지 ********************/
+
+.img{            
+    width: 100%;
+    height: 200px;
+    border-radius: 7px 7px 0 0;
+    margin-bottom: 17px;
+}
+.img-1{
+    background: url(http://movie.phinf.naver.net/20170118_172/1484704779507T3ahF_JPEG/movie_image.jpg);            
+    background-size: cover;
+}
+.img-2{
+    background: url(http://img1.daumcdn.net/thumb/R960x0/?fname=http%3A%2F%2Fcfile24.uf.tistory.com%2Fimage%2F2327EE37583395E81D3EE6);              
+    background-size: cover;
+}
+.img-3{            
+    background: url(http://movie.phinf.naver.net/20161208_214/1481159570776FFFlp_JPEG/movie_image.jpg);            
+    background-size: cover;
+}
+.img-4{
+    background: url(http://uhd.img.topstarnews.net/wys4/file_attach/2016/11/01/1477986030-97-org.jpg);
+    background-size: cover;            
+}
+.img-5{
+    background: url(http://social.lge.co.kr/wp-content/uploads/2013/01/%EB%AC%B4%ED%95%9C2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.img-6{
+    background: url(http://cfile1.uf.tistory.com/image/217CEF3653A6436832CDE6);
+    background-size: cover;
+    background-position: center;
+}
+.img-7{
+    background: url(http://ohzara.com/wp-content/uploads/2011/04/wproduct2.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.img-8{
+    background: url(http://file.gamedonga.co.kr/files/2013/02/27/url.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/************************************/
+
+.content-p{
+    font-size: 14px;
+    margin: 10px 0 0 8px;      
+    color: #555;
+}
+h2{
+    font-size: 18px;
+    margin: 8px 0 0 8px;
+    color: #111;
+}
+
+/* contents */
+.header{
+    background: url(http://image2.megabox.co.kr/mop/still/2017/C9/368165-9197-4075-81EA-C114995D20F3.large.jpg);
+    background-size: cover;
+    background-position: bottom;
+    height: 460px;
+    background-attachment: fixed;
+}
+.section-tit{
+    width: 900px;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 40px 0;
+}
+.tit-sm{
+    color: #a5a5a5;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.tit-big{            
+    color: #eee;
+    font-size: 40px;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+.content-tit{
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.section-list{
+    width: 900px;
+    margin: 100px auto 0;
+}
+.list-1st{
+    width: -webkit-calc((100% / 3)*2 );
+    width: -moz-calc((100% / 3)*2 );
+    width: calc((100% / 4)*2 );
+    float: left;
+}
+.list-2nd{
+    width: -webkit-calc(100% / 3);
+    width: -moz-calc(100% / 3);
+    width: calc(100% / 4);
+    float: left;
+}
+.list-img-1st{ 
+    height: 600px;
+}
+.list-img-2nd{ 
+    height: 290px;
+}
+.list-wrap{
+    display: none;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    font-size: 17px;
+    font-weight:600; 
+}
+.list-wrap div:first-child{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #e1e1e1;
+}
+.list-wrap-tit{
+    padding-top: 150px;
+    padding-left: 20px;
+}
+.list-wrap div:nth-child(2){
+    position: absolute;
+    top: 200px;
+    left: 20px;
+}
+.list-wrap div ul li a{
+    color: aliceblue;
+}
+.list-wrap div ul li a:hover{
+    text-decoration: underline;
+}
+.rnk{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    background: #00ccff;
+    text-align: center;
+    line-height: 70px;
+}
+/**** img ***************/
+.list-1{
+    background: url(http://movie.phinf.naver.net/20170118_172/1484704779507T3ahF_JPEG/movie_image.jpg);            
+    background-size: cover;
+    background-position: center;
+    border: 10px solid #fff;
+}
+.list-2{
+    background: url(http://movie.phinf.naver.net/20161208_214/1481159570776FFFlp_JPEG/movie_image.jpg);              
+    background-size: cover;
+    border: 10px solid #fff;
+}
+.list-3{            
+    background: url(http://movie.phinf.naver.net/20170103_15/1483428971741WWzXt_JPEG/movie_image.jpg);   
+    background-size: cover;
+    border: 10px solid #fff;
+}
+.list-4{            
+    background: url(http://addyk.co.kr/wordpress/wp-content/uploads/2017/02/%EB%A1%9C%EA%B1%B4.jpg);   
+    background-size: cover;
+    border: 10px solid #fff;
+}
+.list-5{            
+    background: url(http://t1.daumcdn.net/brunch/service/user/130G/image/m70_zO-1QTPvhtI8DuAbkC4pato.jpg);   
+    background-size: cover;
+    border: 10px solid #fff;
+}
+/**** Footer ************/
+footer{
+    clear: both;
+    background: #fafafa;
+    padding: 100px;
+    margin-top: 150px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    color: #505050;
+    font-weight: bold;
+}
+
+
+/*** detail ****/
+em{
+    font-size: 12px;
+    font-style:normal;
+    color: #777;
+} 
+.section-detail{
+    width: 900px;
+    margin: 0 auto;   
+    display: table;
+}
+.detail-img{            
+    width: 202px;
+    height: 270px;
+    float: left;
+}
+.detail-p{
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    font-weight: 600;
+}
+.header-detail{
+    background: url(http://t1.daumcdn.net/movie/337c9a0addff00ece68ee2d28dfe065420028b4f);
+    background-size: cover;
+    background-position: center;
+    height: 460px;
+    background-attachment: fixed;
+}
+.atc{
+    float: left;
+    padding: 0 30px;
+    font-size: 14.3px;
+}
+h3{
+    margin-top: 20px;
+}
+th{
+    text-align: left;
+    font-size: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+}
+td{
+    padding: 6px;
+}
+

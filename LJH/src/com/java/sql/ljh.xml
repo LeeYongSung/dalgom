@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ljh">
+  <select id="selectMember" parameterType="hashmap" resultType="hashmap">
+  	SELECT MEM_NO AS MemNo,
+	       MEM_EMAIL AS MemEmail,
+	       MEM_PW as MemPw,
+	       MEM_NAME as MemName
+	FROM LJH.MEMBER
+	WHERE MEM_EMAIL = #{MemEmail}
+	AND   MEM_PW    = #{MemPw}
+  </select>
+</mapper>
+
+
+
+
+
+

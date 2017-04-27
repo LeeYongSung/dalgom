@@ -1,0 +1,118 @@
+/*Reset*/
+html, body, p, h1, h2, h3{
+margin: 0 auto;
+padding: 0;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+/*header*/
+
+header{
+    border-top: 4px solid #00ccff;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+}
+.header-tit{
+    font-size: 24px;
+    font-weight: 600;    
+    padding: 13px 0 13px 25px;
+}
+.header-sm{            
+    font-size: 16px;
+    font-weight: 600;
+    color: #999;
+}
+/*section*/
+section{
+    width: 250px;
+    margin: 0 auto;
+}
+.section-p{
+    margin-top: 150px;
+    margin-bottom: 13px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.index-input{
+    width: 100%;
+    height: 38px;
+    padding: 8px 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background: #00bbff;
+    border: 0;
+    color: aliceblue;
+    box-sizing: border-box;
+}
+.section-index ::placeholder {color: aliceblue;} 
+.section-index ::-moz-placeholder {color: aliceblue;}
+.section-index :-ms-input-placeholder {color: aliceblue;}
+.section-index ::-webkit-input-placeholder { color: aliceblue;}
+
+button{
+    background: #3f3f3f;
+    border: 0;
+    width: 100%;
+    font-size: 12px;
+    padding: 12px;
+    color: aliceblue;
+    border-radius: 4px;            
+    margin-bottom: 15px;
+}
+button:hover{
+    -webkit-filter: invert();
+    -o-filter: invert();
+    filter: invert();
+}
+.section-a{
+    font-size: 14px;
+    font-weight: 700;
+    color: #aaa;
+}
+
+/*join section*/
+.section-join{
+    width: 740px;
+    margin: 0 auto;
+}
+.section-p2{
+    margin-top: 150px;
+    font-size: 20px;
+    font-weight: 800;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #111;
+}
+.join-section{
+    margin-top: 43px;
+    padding-bottom: 35px;
+}
+.section-label{            
+    font-size: 16px;
+    padding: 0;
+    float: left;
+    width: 188px;
+}
+select{
+    position: relative;
+    top: 5px;
+    border: 1px solid #ccc;
+    padding: 6px;
+    font-size: 16px;            
+}
+.section-join input{
+    color: #656565;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    padding: 9px;
+}
+
+
+
+

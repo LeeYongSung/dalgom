@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" href="css/enter.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#button").click(function(){
+		if($("#id").val().length == 0){
+			alert("아이를 입력하세요!");
+			return false;
+		}
+		
+		if($("#pw").val().length == 0){
+			alert("비밀번호를 입력하세요!");
+			return false;
+		}
+		
+		$.ajax({type: "POST",
+		    url : "/LJH/LoginAction!execute.ljh",
+		    data : {"MemEmail":$("#id").val(),
+		    	    "MemPw":$("#pw").val()},
+		    success : function(data){
+		            if(data.size > 0){
+		            	alert("성공");
+		            	location.href = "/LJH/main.ljh";
+		            }else {
+		            	alert("실패");
+		            }
+		   }
+		 });
+	});
+});
+</script>
+</head>
+<body>
+    <header>
+        <div class="header-tit">
+            <a href="#">너의 이름은</a>
+            <span class="header-sm">로그인</span>
+        </div>        
+    </header>    
+    <section>        
+        <p class="section-p">너의 이름은</p>        
+        <div class="section-index">
+            <input class="index-input" id="id" type="text" placeholder="ID">
+            <input class="index-input" id="pw" type="password" placeholder="Password">
+        </div>
+        <div>
+            <button type="button" id="button">로그인</button>
+        </div>
+        <div class="">
+            <a class="section-a" href="join.html">회원가입</a> |
+            <a class="section-a" href="#">아이디 찾기</a> |
+            <a class="section-a" href="#">비밀번호 찾기</a>
+        </div>
+    </section>  
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content-btn").click(function(){
+                $(".hidden-nav").toggle(300);                
+            });
+            
+            $(".list-1").mouseover(function(){
+                $(".list-wrap").css("display","block");
+            });
+            $(".list-1").mouseout(function(){
+                $(".list-wrap").css("display","none");
+            })
+            
+        });
+        
+   </script>
+</head>
+<body>
+    <nav>
+        <div class="nav">
+            <div>
+                <a class="nav-tit nb" href="main.html">너의 이름은</a>
+            </div>
+            <div>
+                <a href="#" class="content-btn">
+                    <p>컨텐츠
+                        <span class="icon">
+                            <span class="icon2"></span>
+                        </span>                        
+                    </p>                    
+                </a>
+            </div>
+            <div>
+                <a href="">고객센터</a>
+                <a href="">문의사항</a>
+            </div>
+            <div>
+                <input class="nav-input" type="text" value="이진형">님 환영합니다
+                <button class="logout-btn" onclick="location.href='index.html'">로그아웃</button>
+            </div>
+        </div>
+    </nav>
+    <div class="hidden-nav">
+        <div class="hidden-nav-wrap">
+            <button class="hidden-btn" onclick="location.href='contents.html'">영화</button>
+            <button class="hidden-btn" onclick="location.href='#'">드라마</button>
+            <button class="hidden-btn" onclick="location.href='#'">애니메이션</button>
+            <button class="hidden-btn" onclick="location.href='#'">K-pop</button>
+            <button class="hidden-btn" onclick="location.href='#'">예능</button>
+            <button class="hidden-btn" onclick="location.href='#'">도서</button>
+            <button class="hidden-btn" onclick="location.href='#'">만화</button>
+            <button class="hidden-btn" onclick="location.href='#'">게임</button>
+        </div>
+    </div>
+    <section>
+        <div class="header">
+            <div class="section-tit">
+               <p class="tit-sm">HOME > MOVIE</p>
+               <p class="tit-big">영화</p>
+           </div>
+        </div>
+        <div class=section>
+           <div class="section-list"> 
+                <p class="content-tit">순위별 영화</p>                 
+                    <div class="list-1st"> 
+                        <div class="list-1 list-img-1st">
+                            <a href="detail.html">
+                               <div class="list-wrap">
+                                    <div>
+                                        <div class="list-wrap-tit">더 킹 The King</div>
+                                    </div>
+                                    <div>   
+                                        <ul>
+                                            <li><a href="#">#범죄</a></li>
+                                            <li><a href="#">#드라마</a></li>
+                                            <li><a href="#">#한재림</a></li>
+                                            <li><a href="#">#조인성</a></li>
+                                            <li><a href="#">#정우성</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="rnk">1</div>
+                                </div>
+                            </a>
+                        </div>                                      
+                    </div> 
+                
+                            
+                <div class="list-2nd">
+                    <div class="list-2 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-3 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-4 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-5 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-5 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-5 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-5 list-img-2nd"></div>
+                </div>
+                <div class="list-2nd">
+                    <div class="list-5 list-img-2nd"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>FOOTER</footer>
+
+</body>
+</html>

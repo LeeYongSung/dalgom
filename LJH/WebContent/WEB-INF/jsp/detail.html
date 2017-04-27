@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content-btn").click(function(){
+                $(".hidden-nav").toggle(300);                
+            });
+        });
+   </script>
+</head>
+<body>
+<body>
+    <nav>
+        <div class="nav">
+            <div>
+                <a class="nav-tit nb" href="main.html">너의 이름은</a>
+            </div>
+            <div>
+                <a href="#" class="content-btn">
+                    <p>컨텐츠
+                        <span class="icon">
+                            <span class="icon2"></span>
+                        </span>                        
+                    </p>                    
+                </a>
+            </div>
+            <div>
+                <a href="">고객센터</a>
+                <a href="">문의사항</a>
+            </div>
+            <div>
+                <input class="nav-input" type="text" value="이진형">님 환영합니다
+                <button class="logout-btn" onclick="location.href='index.html'">로그아웃</button>
+            </div>
+        </div>
+    </nav>
+    <div class="hidden-nav">
+        <div class="hidden-nav-wrap">
+            <button class="hidden-btn" onclick="location.href='contents.html'">영화</button>
+            <button class="hidden-btn" onclick="location.href='#'">드라마</button>
+            <button class="hidden-btn" onclick="location.href='#'">애니메이션</button>
+            <button class="hidden-btn" onclick="location.href='#'">K-pop</button>
+            <button class="hidden-btn" onclick="location.href='#'">예능</button>
+            <button class="hidden-btn" onclick="location.href='#'">도서</button>
+            <button class="hidden-btn" onclick="location.href='#'">만화</button>
+            <button class="hidden-btn" onclick="location.href='#'">게임</button>
+        </div>
+    </div>
+    <section>
+        <div class="header-detail">
+            <div class="section-tit">
+               <p class="tit-sm">HOME > MOVIE > DETAIL</p>
+               <p class="tit-big">더 킹</p>
+           </div>
+        </div>
+        <div class=section>        
+            <div class="section-detail">
+                <p class="detail-p">상세정보</p>
+                <div class="detail-img img-1 "></div>            
+                <div class="atc">  
+                    <table>
+                        <tr>
+                            <th colspan="5">
+                                더 킹<br>
+                                <em>The King</em>                        
+                            </th>
+                        </tr>                 
+                        <tr>
+                           <td>평점</td>
+                           <td colspan="4">
+                                <span class="fa fa-star	"></span>
+                                <span class="fa fa-star	"></span>
+                                <span class="fa fa-star	"></span>
+                                <span class="fa fa-star	"></span>
+                            </td>
+                           </tr>
+                        <tr>
+                           <td>개요</td>
+                           <td>범죄,드라마</td>
+                           <td>한국</td>
+                           <td>134분</td>
+                           <td>2017.01.18 개봉</td> 
+                        </tr>
+                        <tr>
+                           <td>감독</td>
+                           <td colspan="4">한재림</td>
+                        </tr>
+                        <tr>
+                           <td>출연</td>
+                           <td colspan="4">조인성, 정우성, 배성우</td>
+                        </tr>
+                        <tr>
+                           <td>등급</td>
+                           <td colspan="4">15세 관람가</td> 
+                        </tr>
+                        <tr>
+                           <td>흥행</td>
+                           <td>예매 1위</td>
+                           <td colspan="3">누적 관객 1,852,920</td>
+                        </tr>
+                    </table>
+                </div>            
+            </div>
+            <div class="section-detail">
+                <h3>줄거리</h3><br>
+                <p>대한민국의 왕은 누구인가?<br>
+                무소불위 권력을 쥐고 폼 나게 살고 싶었던 태수는<br>
+                 우여곡절 끝에 권력의 설계자 한강식을 만나<br>
+                 핵심 라인을 타고 승승장구 하게 된다<br><br>
+
+                 정권이 교체되는 중요한 시기,<br>
+                 새로운 판을 짜며 기회를 노리던 이들 앞에<br>
+                 예상치 못한 위기가 닥치는데…<br><br>
+
+                 대한민국이 속 시원하게 뒤집힌다!</p>
+            </div>
+        </div>        
+    </section>
+    <footer>FOOTER</footer>
+</body>
+</html>
