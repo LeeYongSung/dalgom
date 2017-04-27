@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="test" namespace="/test" extends="struts-default">
+        <action name="test" class="com.java.TestAction">
+			<result name="success">/WEB-INF/jsp/test2.jsp</result>
+		</action>
+		
+		<action name="insertTemp" class="com.java.TestAction" method="insert">
+			<result type="chain">test</result>
+		</action>
+		
+		<action name="updateTemp" class="com.java.TestAction" method="update">
+			<result type="redirectAction">test</result>
+		</action>
+		
+		<action name="deleteTemp" class="com.java.TestAction" method="delete">
+			<result type="redirectAction">test</result>
+		</action>
+		
+		<action name="*!*" class="com.java.{1}" method="{2}">
+			<result type="redirectAction">test</result>
+		</action>
+    </package>
+
+</struts>

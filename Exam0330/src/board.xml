@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="board" namespace="/board" extends="struts-default">
+        <action name="select" class="com.java.BoardAction" method="select">
+            <result>/WEB-INF/jsp/test.jsp</result>
+        </action>
+        <action name="insert" class="com.java.BoardAction" method="insert">
+            <result type="redirectAction">select</result>
+        </action>
+        <action name="update" class="com.java.BoardAction" method="update">
+            <result type="redirectAction">select</result>
+        </action>
+        <action name="delete" class="com.java.BoardAction" method="delete">
+            <result type="redirectAction">select</result>
+        </action>
+    </package>
+    
+</struts>
